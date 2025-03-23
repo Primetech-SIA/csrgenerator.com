@@ -11,7 +11,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    defaults = {
+        'country': 'LV',
+        'locality': 'Riga',
+        'organization': 'PrimeTech',
+        'organizational_unit': 'IT',
+        'common_name': '.ft.primetech.lv'
+    }
+    return render_template('index.html', **defaults)
 
 
 @app.route('/security')
